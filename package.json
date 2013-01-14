@@ -1,0 +1,20 @@
+{
+  "name": "email-tester",
+  "version": "0.0.0",
+  "description": "A small program to test your emails",
+  "repository": "",
+  "scripts": {
+	  "start": "node_modules/.bin/coffee server.coffee"
+  },
+  "keywords": [
+    "email"
+  ],
+  "author": "John Wright <john.wright@fairfaxmedia.com.au>",
+  "license": "BSD",
+  "dependencies": {
+	  "coffee-script": "*",
+	  "emailjs": "*",
+	  "express": "*",
+	  "jade": "*"
+  }
+}

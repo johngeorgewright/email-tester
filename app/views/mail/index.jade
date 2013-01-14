@@ -1,0 +1,48 @@
+extends ../base
+
+block content
+    form.form-horizontal(action='/mail/send', method='post')
+        fieldset
+            legend From
+            .control-group
+                label.control-label(for='from-host') Host
+                .controls
+                    input(type='text', id='from-host', name='from[host]', value='smtp.gmail.com')
+            .control-group
+                label.control-label(for='from-user') Username
+                .controls
+                    input(type='text', id='from-user', name='from[user]')
+            .control-group
+                label.control-label(for='from-password') Password
+                .controls
+                    input(type='password', id='from-password', name='from[password]')
+            .control-group
+                label.control-label(for='from-address') Address
+                .controls
+                    input(type='email', id='from-address', name='from[address]', placeholder='you@place.com')
+            .control-group
+                label.control-label(for='from-ssl') SSL
+                .controls
+                    input(type='checkbox', id='from-ssl', name='from[ssl]', checked=true)
+        fieldset
+            legend E-Mail
+            .control-group
+                label.control-label(for='to') To
+                .controls
+                    input(type='text', id='to', name='to', placeholder='someone@someplace.com.au')
+            .control-group
+                label.control-label(for='subject') Subject
+                .controls
+                    input(type='text', id='subject', name='subject', value='Newsletter Test')
+            .control-group
+                label.control-label(for='body-html') HTML
+                .controls
+                    textarea(id='body-html', name='body[html]')
+            .control-group
+                label.control-label(for='body-text') Text
+                .controls
+                    textarea(id='body-text', name='body[text]')
+            .control-group
+                .controls
+                    input.btn(type='submit', value='Send')
+
