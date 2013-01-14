@@ -2,7 +2,11 @@ email  = require 'emailjs/email'
 assert = require 'assert'
 
 exports.index = (req, res)->
-	res.render 'mail/index'
+	res.render 'mail/index',
+		flash:
+			error: req.flash 'error'
+			warning: req.flash 'warning'
+			info: req.flash 'info'
 
 exports.send = (req, res)->
 	server = email.server.connect
@@ -24,6 +28,8 @@ exports.send = (req, res)->
 		]
 
 	server.send message, (err, message)->
-		assert.ifError err
-		res.redirect 'back'
+		console.log err if err
+	
+	req.flash 'info', 'You\'re email has been sent'
+	res.redirect 'back'
 

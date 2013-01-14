@@ -13,6 +13,7 @@
   "license": "BSD",
   "dependencies": {
 	  "coffee-script": "*",
+	  "connect-flash": "*",
 	  "emailjs": "*",
 	  "express": "*",
 	  "jade": "*"

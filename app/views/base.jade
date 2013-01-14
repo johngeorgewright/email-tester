@@ -1,3 +1,8 @@
+mixin alert(type, message)
+    div(class=['alert','alert-#{type}'])
+        strong= type.substr(0, 1).toUpperCase() + type.substring(1)
+        | &nbsp;#{message}
+
 doctype 5
 html(lang='en')
     head
@@ -6,6 +11,13 @@ html(lang='en')
         link(rel='stylesheet', href='/vendor/bootstrap/css/bootstrap.min.css')
     body
         .container
+            if flash
+                if flash.error.length > 0
+                    mixin alert('error', flash.error)
+                if flash.warning.length > 0
+                    mixin alert('warning', flash.warning)
+                if flash.info.length > 0
+                    mixin alert('info', flash.info)
             h1 E-Mail Tester
             block content
         
