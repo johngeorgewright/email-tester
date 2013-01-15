@@ -14,7 +14,6 @@ app.configure ->
 	app.use express.bodyParser()
 	app.use express.methodOverride()
 	app.use controllers.security.extractPort
-	app.use controllers.security.herokuSSL
 	app.use express.cookieParser 'secret'
 	app.use express.session()
 	app.use flash()
