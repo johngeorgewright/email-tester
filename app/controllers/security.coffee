@@ -10,7 +10,7 @@ exports.extractPort = (req, res, next)->
 	next()
 
 exports.ssl = (req, res, next)->
-	if req.secure
+	if req.protocol is 'https'
 		next()
 	else
 		url  = "https://#{req.host}"
