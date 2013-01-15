@@ -9,11 +9,12 @@ app.configure ->
 	app.set 'views', path.join __dirname, 'views'
 	app.set 'view engine', 'jade'
 	app.locals.flash = false
-	app.use controllers.security.extractPort
 	app.use express.favicon()
 	app.use express.logger 'dev'
 	app.use express.bodyParser()
 	app.use express.methodOverride()
+	app.use controllers.security.extractPort
+	app.use controllers.security.herokuSSL
 	app.use express.cookieParser 'secret'
 	app.use express.session()
 	app.use flash()

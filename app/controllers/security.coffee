@@ -9,8 +9,12 @@ exports.extractPort = (req, res, next)->
 
 	next()
 
+exports.herokuSSL = (req, res, next)->
+	req.secure = req.secure or req.headers['x-forwarded-proto'] is 'https'
+	next()
+
 exports.ssl = (req, res, next)->
-	if req.protocol is 'https'
+	if req.secure
 		next()
 	else
 		url  = "https://#{req.host}"
