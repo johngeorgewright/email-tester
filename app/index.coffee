@@ -9,6 +9,7 @@ app.configure ->
 	app.set 'views', path.join __dirname, 'views'
 	app.set 'view engine', 'jade'
 	app.locals.flash = false
+	app.use controllers.security.extractPort
 	app.use express.favicon()
 	app.use express.logger 'dev'
 	app.use express.bodyParser()
@@ -21,6 +22,9 @@ app.configure ->
 
 app.configure 'development', ->
 	app.use express.errorHandler()
+
+app.configure 'production', ->
+  app.all '*', controllers.security.ssl
 
 app.get '/', controllers.mail.index
 app.post '/mail/send', controllers.mail.send
