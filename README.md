@@ -1,6 +1,8 @@
 Email Tester
 ============
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/johngeorgewright/email-tester.svg)](https://greenkeeper.io/)
+
 Uploaded to [heroku](https://email-tester.herokuapp.com)
 
 Installation
